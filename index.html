@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pomodoro Study Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Background Image Input -->
+<input type="file" id="bgInput" accept="image/*" hidden>
+
+<div class="main-wrapper">
+<div class="container">
+    <h1>🍅 Pomodoro Timer</h1>
+
+    <div id="timer">25:00</div>
+    <p id="status">Focus Time</p>
+
+    <div class="buttons">
+        <button onclick="startTimer()">Start</button>
+        <button onclick="pauseTimer()">Pause</button>
+        <button onclick="resetTimer()">Reset</button>
+    </div>
+    <button class="bg-btn" onclick="openBgChooser()">Change Background</button>
+
+
+    <!-- Toggle Notes Button -->
+    <button class="notes-toggle" onclick="toggleNotes()">📒 Notes</button>
+
+    <!-- Notes Section (Hidden by Default) -->
+    
+</div>
+
+<div id="notesSection" class="notes-section">
+        <input type="file" id="noteFile" accept=".txt,.pdf,image/*">
+        <textarea id="noteText" placeholder="Write your notes here..."></textarea>
+        <iframe id="filePreview"></iframe>
+    </div>
+
+</div>
+    </div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
