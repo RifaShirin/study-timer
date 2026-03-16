@@ -125,5 +125,15 @@ textarea {
     padding: 15px;
     font-size: 16px;
 }
-
-
+.notification{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:#222;
+    color:white;
+    padding:15px 25px;
+    border-radius:10px;
+    font-size:16px;
+    display:none;
+    z-index:2000;
+}
