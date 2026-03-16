@@ -28,19 +28,23 @@
     <!-- Toggle Notes Button -->
     <button class="notes-toggle" onclick="toggleNotes()">📒 Notes</button>
 
-    <!-- Notes Section (Hidden by Default) -->
+    
     
 </div>
 
-<div id="notesSection" class="notes-section">
-        <input type="file" id="noteFile" accept=".txt,.pdf,image/*">
-        <textarea id="noteText" placeholder="Write your notes here..."></textarea>
-        <iframe id="filePreview"></iframe>
-    </div>
-
+<!-- Notes Section (Hidden by Default) -->
+<div id="notesSection" class="notes-section" style="display:none;">
+    <input type="file" id="noteFile" accept=".txt,.pdf,image/*">
+    <textarea id="noteText" placeholder="Write your notes here..."></textarea>
+    <iframe id="filePreview"></iframe>
+</div>
 </div>
     </div>
+<div id="notification" class="notification"></div>
 
+<audio id="alertSound">
+<source src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" type="audio/ogg">
+</audio>
 
 <script src="script.js"></script>
 </body>
