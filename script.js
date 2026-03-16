@@ -44,17 +44,25 @@ function resetTimer() {
 }
 
 function switchMode() {
+
     if (isFocus) {
+
         isFocus = false;
         timeLeft = breakTime;
         document.getElementById("status").innerText = "Break Time";
-        alert("Focus session completed! Take a break.");
+
+        showNotification("Take a break");
+
     } else {
+
         isFocus = true;
         timeLeft = focusTime;
         document.getElementById("status").innerText = "Focus Time";
-        alert("Break over! Back to study.");
+
+        showNotification("Break time over! Back to study");
+
     }
+
     updateDisplay();
     startTimer();
 }
@@ -83,21 +91,44 @@ document.getElementById("bgInput").addEventListener("change", function(event) {
 /* ========================= */
 
 function toggleNotes() {
-    function toggleNotes() {
-    document.getElementById("notesPage").classList.toggle("active");
-    }}
+    const notes = document.getElementById("notesSection");
+
+    if (notes.style.display === "none" || notes.style.display === "") {
+        notes.style.display = "block";
+    } else {
+        notes.style.display = "none";
+    }
+}
 
 document.getElementById("noteFile").addEventListener("change", function(event) {
+
     const file = event.target.files[0];
     const preview = document.getElementById("filePreview");
 
     if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            preview.src = e.target.result;
-        }
-        reader.readAsDataURL(file);
+
+        const fileURL = URL.createObjectURL(file);
+
+        preview.src = fileURL;
+        preview.style.display = "block";
     }
+
 });
 
+
 updateDisplay();
+
+function showNotification(message){
+
+    const box = document.getElementById("notification");
+    const sound = document.getElementById("alertSound");
+
+    box.innerText = message;
+    box.style.display = "block";
+
+    sound.play();
+
+    setTimeout(()=>{
+        box.style.display="none";
+    },4000);
+}
